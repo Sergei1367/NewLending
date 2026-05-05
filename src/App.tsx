@@ -643,33 +643,77 @@ export default function App() {
 
       {/* ─── CTA ─── */}
       <Section id="contact" className="py-24 sm:py-32">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-text-primary tracking-tight leading-tight mb-6">
-            Нужна архитектура, которая{' '}
-            <span className="gradient-text">не сломается при росте</span>?
-          </h2>
-          <p className="text-text-muted text-lg mb-12 max-w-xl mx-auto">
-            Обсудим задачу. Без обязательств — просто технический разговор о вашей системе.
-          </p>
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="glass-card rounded-2xl p-10 sm:p-14 lg:p-16 relative overflow-hidden border border-border-card/80">
+            {/* Subtle background glow */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-accent-blue/[0.04] rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-purple/[0.04] rounded-full blur-[80px] pointer-events-none" />
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="https://t.me/logicGrid0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-accent-blue/10 border border-accent-blue/30 text-accent-blue font-medium hover:bg-accent-blue/20 hover:glow-blue transition-all duration-300"
-            >
-              <IconTelegram />
-              Написать в Telegram
-              <span className="group-hover:translate-x-0.5 transition-transform">→</span>
-            </a>
-            <a
-              href="mailto:s06621848@gmail.com"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-bg-secondary/60 border border-border-card text-text-secondary font-medium hover:text-text-primary hover:border-border-subtle transition-all duration-300"
-            >
-              <IconEmail />
-              s06621848@gmail.com
-            </a>
+            <div className="relative z-10">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-text-primary tracking-tight leading-tight mb-5 max-w-2xl mx-auto">
+                  Нужна архитектура, которая{' '}
+                  <span className="gradient-text">выдержит рост</span>?
+                </h2>
+                <p className="text-text-secondary text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
+                  Если система уже становится сложной — лучше заложить правильный контур до того, как нагрузка, интеграции и данные начнут ломать продукт.
+                </p>
+              </div>
+
+              {/* 3-point list */}
+              <div className="max-w-md mx-auto space-y-3 mb-12">
+                {[
+                  'разберу текущую задачу',
+                  'покажу архитектурные риски',
+                  'предложу production-ready маршрут',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 text-sm text-text-muted/80">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-blue/60 shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <a
+                  href="https://t.me/logicGrid0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-accent-blue/15 border border-accent-blue/40 text-accent-blue font-medium text-sm cta-glow hover:bg-accent-blue/25 hover:border-accent-blue/60 transition-all duration-500"
+                >
+                  <IconTelegram />
+                  Написать в Telegram
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </a>
+                <a
+                  href="mailto:s06621848@gmail.com"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-bg-secondary/50 border border-border-subtle text-text-secondary font-medium text-sm hover:text-text-primary hover:border-border-card hover:bg-bg-secondary/70 transition-all duration-300"
+                >
+                  <IconEmail />
+                  Отправить email
+                </a>
+              </div>
+
+              {/* Contact details */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2 text-xs font-mono text-text-muted/50">
+                <a
+                  href="https://t.me/logicGrid0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-text-primary transition-colors"
+                >
+                  Telegram: @logicGrid0
+                </a>
+                <span className="hidden sm:inline text-text-muted/20">·</span>
+                <a
+                  href="mailto:s06621848@gmail.com"
+                  className="hover:text-text-primary transition-colors"
+                >
+                  s06621848@gmail.com
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
