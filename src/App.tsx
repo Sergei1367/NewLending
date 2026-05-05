@@ -750,6 +750,11 @@ export default function App() {
                   s06621848@gmail.com
                 </a>
               </div>
+
+              {/* Low-barrier text */}
+              <p className="mt-8 text-xs text-text-muted/35 text-center max-w-sm mx-auto">
+                Можно просто описать задачу в свободной форме — я отвечу, что с&nbsp;этим делать дальше.
+              </p>
             </div>
           </div>
         </div>
