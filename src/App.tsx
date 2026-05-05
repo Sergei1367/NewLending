@@ -255,11 +255,36 @@ const cases = [
 
 /* ─── Approach Data ─── */
 const approachSteps = [
-  { num: '01', title: 'Анализ задачи', desc: 'Разбираю бизнес-требования, ограничения, масштаб. Определяю, что действительно нужно, а что — premature optimization.' },
-  { num: '02', title: 'Декомпозиция', desc: 'Разбиваю систему на bounded contexts, определяю зоны ответственности, контракты между модулями.' },
-  { num: '03', title: 'Архитектура', desc: 'Проектирую структуру компонентов, потоки данных, API контракты, стратегии отказоустойчивости.' },
-  { num: '04', title: 'Масштабирование', desc: 'Закладываю стратегию роста: горизонтальное масштабирование, кэширование, шардинг, event-driven коммуникация.' },
-  { num: '05', title: 'Запуск', desc: 'CI/CD pipeline, observability, мониторинг, alerting. Система работает — и вы знаете, как она работает.' },
+  {
+    num: '01',
+    title: 'Разбор бизнес-цели',
+    label: 'Business',
+    desc: 'Определяю, какую задачу система должна решать для бизнеса, где реальные ограничения и что будет критичным при росте.',
+  },
+  {
+    num: '02',
+    title: 'Границы и доменная модель',
+    label: 'Domain',
+    desc: 'Выделяю сущности, роли, контексты, tenant-модель, события и зоны ответственности модулей.',
+  },
+  {
+    num: '03',
+    title: 'Архитектурный контур',
+    label: 'Architecture',
+    desc: 'Проектирую API, данные, очереди, события, аудит, интеграции, безопасность и runtime-слои.',
+  },
+  {
+    num: '04',
+    title: 'Масштабирование и отказоустойчивость',
+    label: 'Scale & Resilience',
+    desc: 'Закладываю горизонтальное масштабирование, fallback-сценарии, observability, деградацию и recovery-механику.',
+  },
+  {
+    num: '05',
+    title: 'Production-ready маршрут',
+    label: 'Roadmap',
+    desc: 'Формирую roadmap реализации: что делать первым, что нельзя откладывать, какие риски закрыть до запуска.',
+  },
 ]
 
 /* ─── Audience Data ─── */
@@ -546,25 +571,43 @@ export default function App() {
           <div className="text-center mb-16">
             <span className="font-mono text-xs text-accent-purple tracking-widest uppercase">Process</span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3 tracking-tight">
-              Подход к работе
+              Как я подхожу к сложным системам
             </h2>
+            <p className="text-text-muted mt-4 max-w-2xl mx-auto leading-relaxed">
+              Я не начинаю с кода. Сначала фиксирую границы системы, риски, данные, нагрузку, интеграции и точки отказа.
+            </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-0">
-            {approachSteps.map((step, i) => (
-              <div
-                key={i}
-                className="group flex gap-6 py-8 border-b border-border-subtle hover:border-accent-blue/20 transition-colors duration-300"
-              >
-                <span className="font-mono text-2xl text-accent-blue/30 font-medium shrink-0 group-hover:text-accent-blue/60 transition-colors">
-                  {step.num}
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold text-text-primary mb-2">{step.title}</h3>
-                  <p className="text-sm text-text-muted leading-relaxed">{step.desc}</p>
+          <div className="max-w-3xl mx-auto relative">
+            {/* Vertical timeline line */}
+            <div className="absolute left-[19px] top-0 bottom-0 w-px bg-border-subtle" />
+
+            <div className="space-y-10">
+              {approachSteps.map((step, i) => (
+                <div
+                  key={i}
+                  className="group flex gap-8 relative"
+                >
+                  {/* Timeline node */}
+                  <div className="shrink-0 relative z-10">
+                    <div className="w-10 h-10 rounded-full bg-bg-secondary border border-border-card flex items-center justify-center group-hover:border-accent-blue/40 transition-colors duration-500">
+                      <span className="text-[10px] font-mono text-text-muted group-hover:text-accent-blue transition-colors duration-500">{step.num}</span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="pt-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="text-base font-semibold text-text-primary">{step.title}</h3>
+                      <span className="px-2 py-0.5 rounded text-[9px] font-mono tracking-wider uppercase border border-accent-blue/15 text-accent-blue/60 bg-accent-blue/[0.04]">
+                        {step.label}
+                      </span>
+                    </div>
+                    <p className="text-sm text-text-muted/80 leading-relaxed max-w-lg">{step.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </Section>
