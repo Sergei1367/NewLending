@@ -253,6 +253,15 @@ const cases = [
   },
 ]
 
+/* ─── Situations Data ─── */
+const situations = [
+  'Система начала расти и появились проблемы с производительностью',
+  'Нужно проектировать CRM / SaaS / платформу с нуля',
+  'Много интеграций — и они начинают ломаться',
+  'Нет понимания, как масштабировать архитектуру',
+  'Нужно навести порядок в уже сложной системе',
+]
+
 /* ─── Approach Data ─── */
 const approachSteps = [
   {
@@ -564,6 +573,34 @@ export default function App() {
       </Section>
 
       <div className="section-divider max-w-4xl mx-auto" />
+
+      {/* ─── SITUATIONS ─── */}
+      <Section id="situations" className="py-24 sm:py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <span className="font-mono text-xs text-accent-blue tracking-widest uppercase">Context</span>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3 tracking-tight">
+              Когда ко мне обращаются
+            </h2>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <div className="space-y-3">
+              {situations.map((item, i) => (
+                <div
+                  key={i}
+                  className="group flex items-start gap-4 px-6 py-4 rounded-lg border border-transparent hover:border-border-card hover:bg-bg-secondary/30 transition-all duration-300 cursor-default"
+                >
+                  <span className="font-mono text-xs text-accent-blue/40 shrink-0 mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                  <p className="text-sm sm:text-base text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors duration-300">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
 
       {/* ─── APPROACH ─── */}
       <Section id="approach" className="py-24 sm:py-32">
