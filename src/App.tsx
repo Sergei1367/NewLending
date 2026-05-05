@@ -229,27 +229,27 @@ const services = [
 const cases = [
   {
     title: 'CRM Enterprise SaaS',
-    tag: 'Multi-tenant · RBAC · Event-sourcing',
-    desc: 'Мультитенантная CRM-платформа с изоляцией данных на уровне tenant, кастомными пайплайнами и интеграцией с внешними системами через event-driven шину.',
-    gradient: 'from-blue-500/20 to-blue-600/5',
+    desc: 'Multi-tenant CRM/ERP платформа для управления заказами, складом, закупками, контейнерной логистикой, финансами, ролями, аудитом и аналитикой.',
+    accent: 'blue',
+    tags: ['tenant_id isolation', 'event-driven model', 'audit log', 'REST API', 'modular architecture', 'horizontal scaling'],
   },
   {
     title: 'OTP Delivery SaaS',
-    tag: 'High availability · Multi-channel · Low latency',
-    desc: 'Платформа доставки OTP-кодов с маршрутизацией по каналам, fallback-логикой и гарантией доставки. Отказоустойчивая архитектура с распределённым rate limiting.',
-    gradient: 'from-violet-500/20 to-violet-600/5',
+    desc: 'Отказоустойчивый сервис доставки OTP-кодов через WhatsApp, Telegram и SMS fallback для RetailCRM и внешних систем.',
+    accent: 'violet',
+    tags: ['fallback engine', 'provider rotation', 'health-check', 'SLA 99.9%', 'Redis TTL', 'multi-tenant settings', 'delivery logs'],
   },
   {
-    title: 'Industrial Edge Platform',
-    tag: 'Edge computing · Offline-first · ITEP',
-    desc: 'Платформа для промышленного edge: сбор телеметрии, локальная обработка, синхронизация при восстановлении связи. Conflict resolution и eventual consistency.',
-    gradient: 'from-emerald-500/20 to-emerald-600/5',
+    title: 'Industrial Trust Edge Platform',
+    desc: 'Edge-first промышленная платформа для фиксации, интерпретации и доказательной привязки производственных событий.',
+    accent: 'emerald',
+    tags: ['edge runtime', 'safety loop', 'evidence chain', 'offline autonomy', 'append-only trail', 'deferred sync', 'HAL'],
   },
   {
-    title: 'AI Governance Platform',
-    tag: 'RAG · LLM governance · Audit trail',
-    desc: 'Платформа управления AI-моделями: retrieval-augmented generation, версионирование промптов, audit-трейинг запросов, контроль качества ответов.',
-    gradient: 'from-purple-500/20 to-purple-600/5',
+    title: 'AI Governance / RAG Platform',
+    desc: 'Enterprise AI governance архитектура для управляемой AI-разработки и воспроизводимых RAG-процессов.',
+    accent: 'purple',
+    tags: ['snapshot-centric execution', 'hybrid retrieval', 'validator committee', 'trace graph', 'append-only event store', 'multi-tenant isolation'],
   },
 ]
 
@@ -481,27 +481,56 @@ export default function App() {
       <Section id="cases" className="py-24 sm:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="font-mono text-xs text-accent-blue tracking-widest uppercase">Cases</span>
+            <span className="font-mono text-xs text-accent-blue tracking-widest uppercase">Case Studies</span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3 tracking-tight">
-              Проекты
+              Кейсы сложных систем
             </h2>
-            <p className="text-text-muted mt-4 max-w-2xl mx-auto">
-              Архитектура, которую я проектировал
+            <p className="text-text-muted mt-4 max-w-2xl mx-auto leading-relaxed">
+              Не просто интерфейсы и код, а архитектурные контуры, рассчитанные на рост, отказоустойчивость, аудит и эксплуатацию.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="space-y-4">
             {cases.map((item, i) => (
               <div
                 key={i}
-                className="group glass-card rounded-xl p-8 hover:border-accent-blue/20 transition-all duration-500 relative overflow-hidden"
+                className="group glass-card rounded-xl p-8 lg:p-10 hover:border-border-card transition-all duration-500"
               >
-                {/* Background gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
-                <div className="relative">
-                  <span className="font-mono text-xs text-accent-blue/70 mb-4 block">{item.tag}</span>
-                  <h3 className="text-xl font-semibold text-text-primary mb-3">{item.title}</h3>
-                  <p className="text-sm text-text-muted leading-relaxed">{item.desc}</p>
+                {/* Label */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono tracking-wider uppercase border ${
+                    item.accent === 'blue' ? 'border-blue-500/20 text-blue-400/80 bg-blue-500/5' :
+                    item.accent === 'violet' ? 'border-violet-500/20 text-violet-400/80 bg-violet-500/5' :
+                    item.accent === 'emerald' ? 'border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5' :
+                    'border-purple-500/20 text-purple-400/80 bg-purple-500/5'
+                  }`}>
+                    Case Study
+                  </span>
+                  <div className="h-px flex-1 bg-border-subtle" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg lg:text-xl font-semibold text-text-primary mb-3">{item.title}</h3>
+
+                {/* Description */}
+                <p className="text-sm text-text-secondary leading-relaxed mb-6 max-w-3xl">{item.desc}</p>
+
+                {/* Architecture focus */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-[10px] font-mono text-text-muted/50 tracking-wide uppercase self-center mr-1">Architecture focus:</span>
+                  {item.tags.map((tag, j) => (
+                    <span
+                      key={j}
+                      className={`px-2.5 py-1 rounded text-[11px] font-mono border transition-colors duration-300 ${
+                        item.accent === 'blue' ? 'border-blue-500/15 text-blue-300/70 bg-blue-500/[0.04] group-hover:border-blue-500/25' :
+                        item.accent === 'violet' ? 'border-violet-500/15 text-violet-300/70 bg-violet-500/[0.04] group-hover:border-violet-500/25' :
+                        item.accent === 'emerald' ? 'border-emerald-500/15 text-emerald-300/70 bg-emerald-500/[0.04] group-hover:border-emerald-500/25' :
+                        'border-purple-500/15 text-purple-300/70 bg-purple-500/[0.04] group-hover:border-purple-500/25'
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
