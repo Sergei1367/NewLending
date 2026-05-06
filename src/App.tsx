@@ -336,6 +336,7 @@ export default function App() {
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-text-muted">
             <a href="#expertise" className="hover:text-text-primary transition-colors">Экспертиза</a>
+            <a href="#itep" className="hover:text-text-primary transition-colors">ITEP</a>
             <a href="#services" className="hover:text-text-primary transition-colors">Услуги</a>
             <a href="#cases" className="hover:text-text-primary transition-colors">Кейсы</a>
             <a href="#approach" className="hover:text-text-primary transition-colors">Подход</a>
@@ -505,6 +506,64 @@ export default function App() {
                 <p className="text-sm text-text-muted leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ─── ITEP PROJECT ─── */}
+      <Section id="itep" className="py-24 sm:py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="glass-card rounded-2xl p-8 sm:p-12 lg:p-14 relative overflow-hidden border border-emerald-500/10 hover:border-emerald-500/20 transition-all duration-700">
+              {/* Background glow */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/[0.04] rounded-full blur-[120px] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-blue/[0.03] rounded-full blur-[100px] pointer-events-none" />
+
+              <div className="relative z-10">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase border border-emerald-500/20 text-emerald-400/80 bg-emerald-500/[0.06]">
+                    Deep-Tech Project
+                  </span>
+                  <div className="h-px flex-1 bg-border-subtle hidden sm:block" />
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl font-semibold text-text-primary tracking-tight mb-4">
+                  ITEP — Industrial Trust Edge Platform
+                </h2>
+
+                <p className="text-text-secondary text-sm sm:text-base leading-relaxed mb-4 max-w-2xl">
+                  Deep-tech проект для промышленной среды, где safety, evidence и trust встроены в edge-first архитектуру.
+                </p>
+
+                <p className="text-text-muted text-sm leading-relaxed mb-8 max-w-2xl">
+                  ITEP создаёт доверенный слой производственных фактов для industrial AI, audit, claims и operational traceability.
+                </p>
+
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-2 mb-10">
+                  {['Edge Runtime', 'Evidence Chain', 'Industrial Trust'].map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1.5 rounded-lg text-[11px] font-mono border border-emerald-500/15 text-emerald-300/70 bg-emerald-500/[0.04] hover:border-emerald-500/25 transition-colors duration-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <a
+                  href="https://YOUR_ITEP_DOMAIN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-medium text-sm hover:bg-emerald-500/15 hover:border-emerald-500/50 transition-all duration-500"
+                >
+                  Посмотреть проект ITEP
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
