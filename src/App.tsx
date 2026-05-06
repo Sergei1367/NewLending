@@ -554,7 +554,7 @@ export default function App() {
 
                 {/* CTA */}
                 <a
-                  href="https://YOUR_ITEP_DOMAIN"
+                  href="https://itep-theta.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-medium text-sm hover:bg-emerald-500/15 hover:border-emerald-500/50 transition-all duration-500"
